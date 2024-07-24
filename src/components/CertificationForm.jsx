@@ -22,6 +22,14 @@ const CertificationForm = () => {
     }]);
   };
 
+  const deleteCertification = (index) => {
+    if (certifications.length > 1) {
+      const newCertifications = certifications.slice();
+      newCertifications.splice(index, 1);
+      setCertifications(newCertifications);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(certifications);
@@ -31,12 +39,31 @@ const CertificationForm = () => {
     <form onSubmit={handleSubmit}>
       {certifications.map((certification, index) => (
         <div key={index}>
-          <input name="name" value={certification.name} onChange={(e) => handleChange(index, e)} placeholder="자격증명" />
-          <input name="issuingOrganization" value={certification.issuingOrganization} onChange={(e) => handleChange(index, e)} placeholder="발급기관" />
-          <input name="issueDate" value={certification.issueDate} onChange={(e) => handleChange(index, e)} placeholder="발급일" />
+          <input
+            name="name"
+            value={certification.name}
+            onChange={(e) => handleChange(index, e)}
+            placeholder="자격증명"
+          />
+          <input
+            name="issuingOrganization"
+            value={certification.issuingOrganization}
+            onChange={(e) => handleChange(index, e)}
+            placeholder="발급기관"
+          />
+          <input
+            name="issueDate"
+            value={certification.issueDate}
+            onChange={(e) => handleChange(index, e)}
+            placeholder="발급일"
+          />
+          {certifications.length > 1 && (
+            <button type="button" onClick={() => deleteCertification(index)}>Delete</button>
+          )}
         </div>
       ))}
       <button type="button" onClick={addCertification}>Add</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
