@@ -68,7 +68,7 @@ const HighSchoolForm = () => {
                   onChange={(date) => handleDateChange(index, date, 'startDate')}
                   dateFormat="yyyy/MM/dd"
                   placeholderText="입학일"
-                  className="full-width"
+                  className="date-picker"
                   showPopperArrow={false}
                 />
               </td>
@@ -100,7 +100,7 @@ const HighSchoolForm = () => {
                   onChange={(date) => handleDateChange(index, date, 'endDate')}
                   dateFormat="yyyy/MM/dd"
                   placeholderText="졸업일"
-                  className="full-width"
+                  className="date-picker"
                   showPopperArrow={false}
                 />
               </td>

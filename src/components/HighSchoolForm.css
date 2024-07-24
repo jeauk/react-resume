@@ -23,8 +23,7 @@
 }
 
 .highSchoolForm input[type="text"], 
-.highSchoolForm select, 
-.highSchoolForm .react-datepicker-wrapper {
+.highSchoolForm select {
   width: 95%;
   height: 30px;
   padding: 5px;
@@ -40,9 +39,7 @@
   box-sizing: border-box;
 }
 
-.highSchoolForm .react-datepicker-wrapper {
-  display: inline-block;
-}
+
 
 .highSchoolForm .react-datepicker__input-container {
   display: inline-block;
