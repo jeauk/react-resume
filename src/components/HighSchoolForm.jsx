@@ -35,6 +35,7 @@ const HighSchoolForm = () => {
       {highSchools.map((highSchool, index) => (
         <table key={index}>
           <tbody>
+            <h2>학력</h2>
             <tr>
               <th><label htmlFor={`name-${index}`}>고등학교명</label></th>
               <td colSpan="3">

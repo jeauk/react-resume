@@ -1,7 +1,7 @@
 /* HighSchoolForm.css */
 .highSchoolForm {
-  width: 100%;
-  margin: 20px 0;
+  width: 90%; /* 폼 너비 조정 */
+  margin: 20px auto; /* 수평 가운데 정렬 */
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -24,32 +24,38 @@
 
 .highSchoolForm input[type="text"], 
 .highSchoolForm select {
-  width: 95%;
-  height: 30px;
+  width: 100%;
+  height: 25px; /* 높이 줄이기 */
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 12px; /* 글꼴 크기 줄이기 */
   box-sizing: border-box;
-  margin: 5px 0;
+  margin: 3px 0; /* 여백 줄이기 */
+}
+
+.date-picker {
+  width: 100%;
+  height: 25px; /* 높이 줄이기 */
 }
 
 .full-width {
-  width: 95%;
-  box-sizing: border-box;
-}
-
-
-
-.highSchoolForm .react-datepicker__input-container {
-  display: inline-block;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .highSchoolForm input:focus, 
 .highSchoolForm select:focus, 
 .highSchoolForm .react-datepicker-wrapper input:focus {
   border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5); /* 그림자 줄이기 */
   outline: none;
+}
+
+.react-datepicker-wrapper {
+  width: 100% !important;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
 }
