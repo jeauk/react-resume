@@ -9,9 +9,10 @@ import UserInfo from './components/UserInfo';
 function App() {
   return (
     <div className="App">
-      <MaxLengthInput />
-      <ResumeForm />
       <UserInfo />
+      <ResumeForm />
+      <MaxLengthInput />
+      
     </div>
   );
 }
