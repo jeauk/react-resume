@@ -31,6 +31,12 @@ const MaxLengthInput = () => {
     }
   };
 
+  const removeLastInput = () => {
+    if (inputs.length > 1) {
+      setInputs(inputs.slice(0, -1));
+    }
+  };
+
   return (
     <div>
       {inputs.map((input, index) => (
@@ -67,7 +73,10 @@ const MaxLengthInput = () => {
           </div>
         </div>
       ))}
-      <button onClick={addInput} disabled={inputs.length >= 5}>Add Input</button>
+      <div className="button-container">
+        <button onClick={addInput} disabled={inputs.length >= 5}>Add Input</button>
+        <button onClick={removeLastInput} disabled={inputs.length <= 1}>Remove Last Input</button>
+      </div>
     </div>
   );
 };
