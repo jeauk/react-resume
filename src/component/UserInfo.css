@@ -1,0 +1,54 @@
+.userInfo {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.userInfo h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.userInfo .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.userInfo th {
+  width: 15%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.userInfo td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.userInfo textarea, .userInfo input[type="text"] {
+  width: 95%;
+  height: 35px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.userInfo textarea {
+  resize: none;
+}
+
+.userInfo input[type="file"] {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
