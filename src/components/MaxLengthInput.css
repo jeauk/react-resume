@@ -1,32 +1,43 @@
 /* MaxLengthInput.css */
-textarea {
+textarea, .title-input {
   font-size: 13px;
   line-height: 1.6;
 }
 
 .input-container {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   margin-bottom: 10px;
   position: relative;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .input-info-box {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .input-id {
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 5px;
+}
+
+.title-input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.char-count {
+  margin-left: auto;
 }
 
 button {
   margin-top: 10px;
-  display: block;
 }
 
 button:disabled {

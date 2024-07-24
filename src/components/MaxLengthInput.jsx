@@ -3,13 +3,13 @@ import './MaxLengthInput.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const MaxLengthInput = () => {
-  const [inputs, setInputs] = useState([{ id: uuidv4(), text: '' }]);
+  const [inputs, setInputs] = useState([{ id: uuidv4(), title: '', text: '' }]);
   const maxLength = 1000;
 
-  const handleChange = (e, id) => {
+  const handleChange = (e, id, field) => {
     const newInputs = inputs.map(input => {
       if (input.id === id) {
-        return { ...input, text: e.target.value };
+        return { ...input, [field]: e.target.value };
       }
       return input;
     });
@@ -18,7 +18,7 @@ const MaxLengthInput = () => {
 
   const addInput = () => {
     if (inputs.length < 5) {
-      const newInput = { id: uuidv4(), text: '' };
+      const newInput = { id: uuidv4(), title: '', text: '' };
       setInputs([...inputs, newInput]);
     }
   };
@@ -32,22 +32,31 @@ const MaxLengthInput = () => {
   return (
     <div>
       {inputs.map((input, index) => (
-          <form action="">
         <div key={input.id} className="input-container">
           <div className="input-info-box">
             <div className="input-id">{index + 1}</div>
-            <button onClick={() => removeInput(input.id)}>Remove</button>
-            {input.text.length}/{maxLength} 
+            <button type="button" onClick={() => removeInput(input.id)}>Remove</button>
+            <div className="char-count">
+              {input.text.length}/{maxLength}
+            </div>
           </div>
-          <textarea
-            value={input.text}
-            onChange={(e) => handleChange(e, input.id)}
-            placeholder="Write your text here..."
-            rows="15"
-            cols="180"
+          <div className="input-box">
+            <input
+              type="text"
+              value={input.title}
+              onChange={(e) => handleChange(e, input.id, 'title')}
+              placeholder="자소서"
+              className="title-input"
             />
+            <textarea
+              value={input.text}
+              onChange={(e) => handleChange(e, input.id, 'text')}
+              placeholder="Write your text here..."
+              rows="15"
+              cols="180"
+            />
+          </div>
         </div>
-            </form>
       ))}
       <button onClick={addInput} disabled={inputs.length >= 5}>Add Input</button>
     </div>
