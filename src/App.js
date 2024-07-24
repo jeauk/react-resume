@@ -1,9 +1,23 @@
 import './App.css';
-import UserInfo from './component/UserInfo';
+import React from 'react';
+import MaxLengthInput from './components/MaxLengthInput';
+import ResumeForm from './components/ResumeForm';
+import CertificationForm from './components/CertificationForm';
+import UserInfo from './components/UserInfo';
+import EducationForm from './components/EducationForm';
+import ExperienceForm from './components/ExperienceForm';
+
+
 
 function App() {
   return (
-    <div className="App"> 
+    <div className="App">
+      <MaxLengthInput />
+      <ResumeForm />
+      <CertificationForm />
+      <UserInfo />
+      <EducationForm />
+      <ExperienceForm />
     </div>
   );
 }
