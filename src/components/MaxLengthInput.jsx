@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './MaxLengthInput.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const MaxLengthInput = () => {
   const [inputs, setInputs] = useState([{ id: uuidv4(), text: '' }]);
-  const maxLength = 50;
-  const endRef = useRef(null);
+  const maxLength = 1000;
 
   const handleChange = (e, id) => {
     const newInputs = inputs.map(input => {
@@ -30,31 +29,27 @@ const MaxLengthInput = () => {
     }
   };
 
-  useEffect(() => {
-    if (inputs.length > 1) {
-      endRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [inputs]);
-
   return (
     <div>
-      {inputs.map((input) => (
+      {inputs.map((input, index) => (
+          <form action="">
         <div key={input.id} className="input-container">
+          <div className="input-info-box">
+            <div className="input-id">{index + 1}</div>
+            <button onClick={() => removeInput(input.id)}>Remove</button>
+            {input.text.length}/{maxLength} 
+          </div>
           <textarea
             value={input.text}
             onChange={(e) => handleChange(e, input.id)}
             placeholder="Write your text here..."
-            rows="10"
-            cols="50"
-          />
-          <div>
-            {input.text.length}/{maxLength} characters
-          </div>
-          <button onClick={() => removeInput(input.id)}>Remove</button>
+            rows="15"
+            cols="180"
+            />
         </div>
+            </form>
       ))}
       <button onClick={addInput} disabled={inputs.length >= 5}>Add Input</button>
-      <div ref={endRef}></div>
     </div>
   );
 };
