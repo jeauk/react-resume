@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
-import './UserInfo.css';  // 추가한 CSS 파일을 import
+import React, { useState, useEffect, useRef } from 'react';
+import './UserInfo.css';
+import PopupDom from './PopupDom';
+import PopupPostCode from './PopupPostCode';
 
 const UserInfo = () => {
-  // 각 입력 필드에 대한 상태 정의
-  const [name, setName] = useState(''); // 이름
-  const [phone, setPhone] = useState(''); // 전화번호
-  const [address, setAddress] = useState(''); // 주소
-  const [email, setEmail] = useState(''); // 이메일
-  const [isSubmitting, setIsSubmitting] = useState(false); // 제출 상태
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+  const [detailedAddress, setDetailedAddress] = useState('');
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [mainImg, setMainImg] = useState("");
+  const fileInputRef = useRef(null);
 
-  // 이미지 미리보기 상태 정의
-  let [mainImg, setMainImg] = useState("");
+  const openPostCode = () => {
+    setIsPopupOpen(true)
+  }
 
-  // 이미지 파일을 선택하면 미리보기를 설정하는 함수
+  const closePostCode = () => {
+    setIsPopupOpen(false)
+  }
+
   const setPreviewImg = (event) => {
-    var reader = new FileReader(); // 파일 리더 생성
-
-    // 파일 읽기가 완료되면 미리보기 이미지 설정
+    var reader = new FileReader();
     reader.onload = function(event) {
       setMainImg(event.target.result);
     };
-
-    reader.readAsDataURL(event.target.files[0]); // 파일을 데이터 URL로 읽기
+    reader.readAsDataURL(event.target.files[0]);
   }
 
-  // 전화번호 입력 시 자동으로 하이픈을 추가하는 함수
   const handlePhoneInput = (event) => {
-    let input = event.target.value.replace(/\D/g, ''); // 숫자만 남김
+    let input = event.target.value.replace(/\D/g, '');
     let formattedPhone = '';
 
     if (input.length <= 3) {
@@ -37,65 +42,82 @@ const UserInfo = () => {
       formattedPhone = input.slice(0, 3) + '-' + input.slice(3, 7) + '-' + input.slice(7, 11);
     }
 
-    setPhone(formattedPhone); // 포맷된 전화번호 설정
+    setPhone(formattedPhone);
   };
 
-  // 폼 제출 시 데이터베이스에 데이터를 저장하는 함수
   const handleSubmit = async (event) => {
-    event.preventDefault(); // 기본 제출 동작 방지
-    setIsSubmitting(true); // 제출 상태 설정
+    event.preventDefault();
+    setIsSubmitting(true);
   };
 
-  // 데이터 전송을 위한 useEffect 훅
-  React.useEffect(() => {
+  useEffect(() => {
     const sendData = async () => {
-      if (isSubmitting) { // 제출 상태일 때만 실행
-        const userInfo = { name, phone, address, email }; // 사용자 정보 객체 생성
+      if (isSubmitting) {
+        const userInfo = { name, phone, address, detailedAddress, email };
         try {
           const response = await fetch('http://localhost:8080/api/userinfo', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(userInfo), // 사용자 정보 JSON으로 변환하여 전송
+            body: JSON.stringify(userInfo),
           });
 
           if (response.ok) {
-            alert('정보가 성공적으로 저장되었습니다.'); // 성공 메시지
-            // 폼 초기화
+            alert('정보가 성공적으로 저장되었습니다.');
             setName('');
             setPhone('');
             setAddress('');
+            setDetailedAddress('');
             setEmail('');
+            setMainImg('');
           } else {
-            alert('정보 저장에 실패했습니다.'); // 실패 메시지
+            alert('정보 저장에 실패했습니다.');
           }
         } catch (error) {
           console.error('Error:', error);
-          alert('정보 저장 중 오류가 발생했습니다.'); // 오류 메시지
+          alert('정보 저장 중 오류가 발생했습니다.');
         } finally {
-          setIsSubmitting(false); // 제출 상태 해제
+          setIsSubmitting(false);
         }
       }
     };
 
     sendData();
-  }, [isSubmitting, name, phone, address, email]); // isSubmitting, name, phone, address, email이 변경될 때마다 실행
+  }, [isSubmitting, name, phone, address, detailedAddress, email]);
+
+  const handleAddress = (data) => {
+    setAddress(data.fullAddress);
+    closePostCode();
+  };
+
+  const handleImageClick = () => {
+    fileInputRef.current.click();
+  };
 
   return (
     <div className="userInfo">
       <h2>인적사항</h2>
       <div className='info'>
-        {/* 이미지 파일 선택 및 미리보기 */}
-        <input type="file" id="image" accept="image/*" 
-          style={{border: "solid 1px lightgray", borderRadius: "5px"}}
-          onChange={setPreviewImg}/>
-        <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
-        {/* 사용자 정보 입력 폼 */}
         <form onSubmit={handleSubmit}>
           <table>
             <tbody>
               <tr>
+                <th rowSpan="4">
+                  <img 
+                    alt="메인사진" 
+                    src={mainImg || "https://via.placeholder.com/300x400"} 
+                    style={{maxWidth:"300px", maxHeight:"400px", cursor: "pointer"}} 
+                    onClick={handleImageClick}
+                  />
+                  <input 
+                    type="file" 
+                    accept="image/*" 
+                    style={{display: "none"}} 
+                    ref={fileInputRef} 
+                    onChange={setPreviewImg}
+                  />
+                </th>
                 <th><label htmlFor="name">이름</label></th>
                 <td>
                   <input
@@ -112,34 +134,58 @@ const UserInfo = () => {
                     id="phone"
                     type="text"
                     value={phone}
-                    onInput={handlePhoneInput}
+                    onChange={handlePhoneInput}
                     placeholder="전화번호를 입력하세요"
                   />
                 </td>
               </tr>
               <tr>
                 <th><label htmlFor="address">주소</label></th>
-                <td>
-                  <textarea
-                    id="address"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    placeholder="주소를 입력하세요"
-                  ></textarea>
+                <td colSpan="3">
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <input
+                      id="address"
+                      type="text"
+                      value={address}
+                      readOnly
+                      placeholder="주소를 선택하세요"
+                      onClick={openPostCode}
+                      style={{ cursor: 'pointer', flex: 2 }}
+                    />
+                    <input
+                      id="detailedAddress"
+                      type="text"
+                      value={detailedAddress}
+                      onChange={(e) => setDetailedAddress(e.target.value)}
+                      placeholder="상세 주소를 입력하세요"
+                      style={{ flex: 1 }}
+                    />
+                  </div>
+                  <div id='popupDom'>
+                    {isPopupOpen && (
+                      <PopupDom>
+                        <PopupPostCode onClose={closePostCode} onAddressSelect={handleAddress} />
+                      </PopupDom>
+                    )}
+                  </div>
                 </td>
+              </tr>
+              <tr>
                 <th><label htmlFor="email">이메일</label></th>
-                <td>
-                  <textarea
+                <td colSpan="3">
+                  <input
                     id="email"
+                    type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="이메일을 입력하세요"
-                  ></textarea>
+                    style={{ width: "100%" }}
+                  />
                 </td>
               </tr>
             </tbody>
           </table>
-          <button type="submit">저장</button>
+          {/* <button type="submit">저장</button> */}
         </form>
       </div>
     </div>
