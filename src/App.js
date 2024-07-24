@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import MaxLengthInput from './MaxLengthInput';
+import MaxLengthInput from './components/MaxLengthInput';
 
 function App() {
   return (
