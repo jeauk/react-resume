@@ -14,10 +14,7 @@ function App() {
     <div className="App">
       <MaxLengthInput />
       <ResumeForm />
-      <CertificationForm />
       <UserInfo />
-      <EducationForm />
-      <ExperienceForm />
     </div>
   );
 }
