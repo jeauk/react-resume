@@ -1,13 +1,23 @@
-
+.page-container {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  height: calc(100vh - 60px); 
+  margin: 0; 
+}
 
 .search {
-  
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
   text-align: center;
 }
 
 .title {
-  
   text-align: center;
+  margin-bottom: 20px; 
 }
 
 .search_box {
@@ -23,7 +33,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.title button {
+.search_box button {
   background-color: #4e99e9;
   border: none;
   color: #fff;
@@ -37,7 +47,7 @@
   transition: .9s ease;
 }
 
-.title button:hover {
+.search_box button:hover {
   transform: scale(1.1);
   color: rgb(255, 255, 255);
   background-color: blue;

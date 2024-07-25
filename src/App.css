@@ -1,29 +1,33 @@
 .Header {
-  position: absolute; /* 부모 요소를 기준으로 위치를 설정 */
-  top: 10px; /* 상단에서 10px 떨어진 위치 */
-  right: 10px; /* 오른쪽에서 10px 떨어진 위치 */
-  /* 추가적인 스타일링 */
+  position: relative; 
+  width: calc(100% - 40px); 
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: center; 
+  background-color: white; 
+  padding: 10px 20px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   font-size: 16px;
   color: #007BFF;
+  overflow-x: hidden; 
 }
 
 .Header a {
-  text-decoration: none; /* 링크 밑줄 제거 */
-  color: inherit; /* 부모 요소의 색상 상속 */
+  text-decoration: none; 
+  color: inherit; 
 }
 
 .Header a:hover {
-  color: #0056b3; /* 호버 시 색상 변경 */
+  color: #0056b3; 
 }
 
-.page {
+.Header .page {
   margin-right: 20px;
 }
 
-.Logo {
-  position: fixed; /* 부모 요소를 기준으로 위치를 설정 */
-  top: 10px; /* 상단에서 10px 떨어진 위치 */
-  left: 10px;
+.Header .Logo {
+  position: absolute;
+  top: 10px;
+  left: 10px; 
   font-size: 16px;
 }
- 
