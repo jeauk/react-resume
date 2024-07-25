@@ -15,7 +15,7 @@ const Header = () => {
           jwt ?
             <li>{sessionStorage.getItem('name')}</li>
             :
-            <li></li>
+            <p></p>
         }
       </span>
       <span className="page">

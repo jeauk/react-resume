@@ -29,7 +29,7 @@ const SignIn = () => {
       alert(data.msg);
       navigate('/');
       sessionStorage.setItem("jwt", data.result);
-                    sessionStorage.setItem("name", data.name);
+      sessionStorage.setItem("name", data.name);
     } else {
       alert(data.msg);
     }
@@ -56,7 +56,7 @@ const SignIn = () => {
             onClick={handleSignIn}
             className="btn btn-primary">Sign In
           </button>
-          <a href="/signup" className="link">Sign Up</a> {/* Sign Up 링크 추가 */}
+          <a href="/2" className="link">Sign Up</a>
         </form>
       </div>
     </div>

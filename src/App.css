@@ -25,9 +25,19 @@
   margin-right: 20px;
 }
 
+.Header .name {
+  margin-right: 20px;
+}
+
 .Header .Logo {
   position: absolute;
   top: 10px;
   left: 10px; 
   font-size: 16px;
+}
+
+label + input + label { display: none !important; }
+.pw-match {
+ color: red;
+ display: block !important;
 }
