@@ -1,4 +1,56 @@
 import React, { useState } from 'react';
+import './CertificationForm.css'; // CSS 파일을 임포트
+
+const CertificationInput = ({ certification, index, handleChange, deleteCertification, showDeleteButton }) => (
+  <div className="certification-section">
+    <table key={index}>
+      <tbody>
+        <tr>
+          <th><label htmlFor={`name-${index}`}>자격증명</label></th>
+          <td>
+            <input
+              id={`name-${index}`}
+              name="name"
+              value={certification.name}
+              onChange={(e) => handleChange(index, e)}
+              placeholder="자격증명을 입력하세요"
+              className="full-width"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label htmlFor={`issuingOrganization-${index}`}>발급기관</label></th>
+          <td>
+            <input
+              id={`issuingOrganization-${index}`}
+              name="issuingOrganization"
+              value={certification.issuingOrganization}
+              onChange={(e) => handleChange(index, e)}
+              placeholder="발급기관을 입력하세요"
+              className="full-width"
+            />
+          </td>
+        </tr>
+        <tr>
+          <th><label htmlFor={`issueDate-${index}`}>발급일</label></th>
+          <td>
+            <input
+              id={`issueDate-${index}`}
+              name="issueDate"
+              value={certification.issueDate}
+              onChange={(e) => handleChange(index, e)}
+              placeholder="발급일을 입력하세요"
+              className="full-width"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    {showDeleteButton && (
+      <button type="button" onClick={() => deleteCertification(index)} className="deleteButton">Delete</button>
+    )}
+  </div>
+);
 
 const CertificationForm = () => {
   const [certifications, setCertifications] = useState([{
@@ -36,34 +88,18 @@ const CertificationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="certificationForm">
       {certifications.map((certification, index) => (
-        <div key={index}>
-          <input
-            name="name"
-            value={certification.name}
-            onChange={(e) => handleChange(index, e)}
-            placeholder="자격증명"
-          />
-          <input
-            name="issuingOrganization"
-            value={certification.issuingOrganization}
-            onChange={(e) => handleChange(index, e)}
-            placeholder="발급기관"
-          />
-          <input
-            name="issueDate"
-            value={certification.issueDate}
-            onChange={(e) => handleChange(index, e)}
-            placeholder="발급일"
-          />
-          {certifications.length > 1 && (
-            <button type="button" onClick={() => deleteCertification(index)}>Delete</button>
-          )}
-        </div>
+        <CertificationInput
+          key={index}
+          index={index}
+          certification={certification}
+          handleChange={handleChange}
+          deleteCertification={deleteCertification}
+          showDeleteButton={certifications.length > 1}
+        />
       ))}
-      <button type="button" onClick={addCertification}>Add</button>
-      <button type="submit">Submit</button>
+      <button type="button" onClick={addCertification} className="addButton">Add</button>
     </form>
   );
 };

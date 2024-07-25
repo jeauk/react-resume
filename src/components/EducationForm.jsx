@@ -38,20 +38,21 @@ const UniversityInput = ({ education, index, handleChange, handleDateChange }) =
             <option value="박사">대학원 박사</option>
           </select>
         </td>
-        <th><label htmlFor={`fieldOfStudy-${index}`}>전공</label></th>
+        <th><label htmlFor={`startDate-${index}`}>입학일</label></th>
         <td>
-          <input
-            id={`fieldOfStudy-${index}`}
-            name="fieldOfStudy"
-            value={education.fieldOfStudy}
-            onChange={(e) => handleChange(index, e)}
-            placeholder="전공"
-            className="full-width"
+          <DatePicker
+            id={`startDate-${index}`}
+            selected={education.startDate}
+            onChange={(date) => handleDateChange(index, date, 'startDate')}
+            dateFormat="yyyy/MM/dd"
+            placeholderText="입학일"
+            className="date-picker"
+            showPopperArrow={false}
           />
         </td>
       </tr>
       <tr>
-        <th><label htmlFor={`startDate-${index}`}>입학일</label></th>
+      <th><label htmlFor={`startDate-${index}`}>입학일</label></th>
         <td>
           <DatePicker
             id={`startDate-${index}`}

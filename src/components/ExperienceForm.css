@@ -1,44 +1,88 @@
-/* form {
-  margin: 20px;
+.experienceForm {
+  width: 90%; /* 폼 너비 조정 */
+  margin: 20px auto; /* 수평 가운데 정렬 */
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
+  border-radius: 5px;
+  background-color: #fff;
   font-family: Arial, sans-serif;
 }
 
-form div {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
+.experienceForm > div {
+  margin-bottom: 20px; /* 각 입력 블록 사이 여백 */
 }
 
-input, textarea {
-  margin-bottom: 10px;
-  padding: 10px;
+.experienceForm input[type="text"], 
+.experienceForm select, 
+.experienceForm textarea {
+  width: 100%;
+  box-sizing: border-box;
+} 
+
+.experienceForm input[type="text"], 
+.experienceForm select {
+  height: 25px; /* 높이 줄이기 */
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 16px;
-  box-sizing: border-box;
+  font-size: 12px; /* 글꼴 크기 줄이기 */
+  margin: 3px 0; /* 여백 줄이기 */
+}
+
+.experienceForm textarea {
+  height: 80px; /* 높이 조정 */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px; /* 글꼴 크기 줄이기 */
+  margin: 3px 0; /* 여백 줄이기 */
+  resize: vertical; /* 세로로만 크기 조정 가능 */
+}
+
+.experienceForm .react-datepicker-wrapper {
+  width: 100% !important; /* DatePicker 전체 너비 */
+}
+
+.experienceForm .react-datepicker__input-container {
   width: 100%;
 }
 
-textarea {
-  height: 100px;
-  resize: none;
-}
-
-button {
+.experienceForm button {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
   background-color: #007bff;
-  color: white;
-  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-top: 10px; /* 버튼 위쪽 여백 조정 */
 }
 
-button:hover {
+.experienceForm button:hover {
   background-color: #0056b3;
-} */
+}
+
+.experienceForm button:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.experienceForm .deleteButton {
+  padding: 5px 10px;
+  border: none;
+  background-color: #dc3545;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.experienceForm .deleteButton:hover {
+  background-color: #c82333;
+}
+
+.experienceForm .deleteButton:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
