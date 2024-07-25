@@ -40,7 +40,7 @@
 }
 
 .userInfo tr:first-child th:first-child {
-  width:10%;
+  width:0%;
 }
 
 .userInfo textarea, .userInfo input[type="text"], .userInfo input[type="email"] {
