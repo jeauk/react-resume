@@ -1,17 +1,26 @@
 import './App.css';
 import React from 'react';
-import MaxLengthInput from './components/MaxLengthInput';
-import ResumeForm from './components/ResumeForm';
-import UserInfo from './components/UserInfo';
+import ResumeMain from './components/ResumeMain';
+import Main from './components/main/Main';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 
 function App() {
   return (
     <div className="App">
-      <UserInfo />
-      <ResumeForm />
-      <MaxLengthInput />
+      <BrowserRouter> 
+        <Routes>
+          <Route path="/resume" element={<ResumeMain />} />
+          
+        </Routes>
+
+        <Routes>
+          <Route path="/" element={<Main />} />
+          
+        </Routes>
+
+      </BrowserRouter>
     </div>
   );
 }

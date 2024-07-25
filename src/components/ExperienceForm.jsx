@@ -61,21 +61,25 @@ const ExperienceForm = () => {
               <React.Fragment key={index}>
                 <tr>
                   <th>회사명</th>
-                  <td>
+                  <td colSpan="5">
                     <input
                       name="company"
                       value={experience.company}
                       onChange={(e) => handleChange(index, e)}
                       placeholder="회사명"
+                      className="companyInput" /* 클래스 추가 */
                     />
                   </td>
+                </tr>
+                <tr>
                   <th>재직 기간</th>
-                  <td colSpan="2">
+                  <td colSpan="5">
                     <DatePicker
                       selected={experience.startDate}
                       onChange={(date) => handleDateChange(index, date, 'startDate')}
                       dateFormat="yyyy/MM/dd"
                       placeholderText="입사일"
+                      className="datePicker"
                       showPopperArrow={false}
                     />
                     <DatePicker
@@ -83,13 +87,14 @@ const ExperienceForm = () => {
                       onChange={(date) => handleDateChange(index, date, 'endDate')}
                       dateFormat="yyyy/MM/dd"
                       placeholderText="퇴사일"
+                      className="datePicker"
                       showPopperArrow={false}
                     />
                   </td>
                 </tr>
                 <tr>
                   <th>직급/직책</th>
-                  <td colSpan="2">
+                  <td colSpan="3">
                     <select
                       name="position"
                       value={experience.position}
@@ -127,7 +132,7 @@ const ExperienceForm = () => {
                 </tr>
                 <tr>
                   <th>담당업무</th>
-                  <td colSpan="4">
+                  <td colSpan="5">
                     <textarea
                       name="description"
                       value={experience.description}
@@ -138,8 +143,11 @@ const ExperienceForm = () => {
                   </td>
                 </tr>
                 {experiences.length > 1 && (
+                  <tr>
+                    <td colSpan="6">
                       <button type="button" className="deleteButton" onClick={() => deleteExperience(index)}>Delete</button>
-
+                    </td>
+                  </tr>
                 )}
               </React.Fragment>
             ))}
