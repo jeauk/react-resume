@@ -74,13 +74,13 @@ const MaxLengthInput = () => {
                 </td>
               </tr>
               <tr>
-                <th><label htmlFor={`text-${input.id}`}>Text</label></th>
+                <th><label htmlFor={`text-${input.id}`}>내용</label></th>
                 <td colSpan="3">
                   <textarea
                     id={`text-${input.id}`}
                     value={input.text}
                     onChange={(e) => handleChange(e, input.id, 'text')}
-                    placeholder="Write your text here..."
+                    placeholder="내용을 입력하세요"
                     rows="15"
                   />
                 </td>
@@ -88,19 +88,19 @@ const MaxLengthInput = () => {
               <tr>
                 <td colSpan="4">
                   <div className="button-container">
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       onClick={() => removeInput(input.id)}
-                    >
-                      Remove
+                      className="remove-button"
+                    >Delete
                     </button>
-                    <button 
-                      type="button" 
+                    <button
+                      type="button"
                       onClick={addInput}
-                      disabled={inputs.length >= 5} 
+                      disabled={inputs.length >= 5}
                       className="add-input-button"
                     >
-                      Add Input
+                      Add
                     </button>
                     <button
                       type="button"
