@@ -49,6 +49,7 @@ const SignIn = () => {
                     alert(data.msg);
                     navigate('/');
                     sessionStorage.setItem("jwt", data.result);
+                    sessionStorage.setItem("name", data.name);
                   } else {
                     alert(data.msg);
                   }
