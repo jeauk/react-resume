@@ -31,52 +31,80 @@ const MaxLengthInput = () => {
     }
   };
 
-  const removeLastInput = () => {
-    if (inputs.length > 1) {
-      setInputs(inputs.slice(0, -1));
-    }
-  };
-
   return (
     <div>
       {inputs.map((input, index) => (
         <div key={input.id} className="input-container">
-          <div className="input-info-box">
-            <div className="input-id">{index + 1}</div>
-            <button type="button" onClick={() => removeInput(input.id)}>Remove</button>
-            <div className="char-count">
-              {input.text.length}/{input.maxChars}
-            </div>
-          </div>
-          <div className="input-box">
-            <input
-              type="text"
-              value={input.title}
-              onChange={(e) => handleChange(e, input.id, 'title')}
-              placeholder="자소서"
-              className="title-input"
-            />
-            <input
-              type="number"
-              value={input.maxChars}
-              onChange={(e) => handleChange(e, input.id, 'maxChars')}
-              placeholder="Max characters"
-              className="max-chars-input"
-            />
-            <textarea
-              value={input.text}
-              onChange={(e) => handleChange(e, input.id, 'text')}
-              placeholder="Write your text here..."
-              rows="15"
-              cols="180"
-            />
-          </div>
+          <table>
+            <tbody>
+              <tr>
+                <th><label htmlFor={`title-${input.id}`}>유형</label></th>
+                <td colSpan="3">
+                  <input
+                    type="text"
+                    id={`title-${input.id}`}
+                    value={input.title}
+                    onChange={(e) => handleChange(e, input.id, 'title')}
+                    placeholder="자기소개서 유형"
+                    className="title-input"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th><label htmlFor={`maxChars-${input.id}`}>글자수</label></th>
+                <td>
+                  <input
+                    type="number"
+                    id={`maxChars-${input.id}`}
+                    value={input.maxChars}
+                    onChange={(e) => handleChange(e, input.id, 'maxChars')}
+                    placeholder="최대 글자수 설정"
+                    className="max-chars-input"
+                  />
+                </td>
+                <th>카운트</th>
+                <td>
+                  <div className="char-count">
+                    {input.text.length}/{input.maxChars}
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th><label htmlFor={`text-${input.id}`}>Text</label></th>
+                <td colSpan="3">
+                  <textarea
+                    id={`text-${input.id}`}
+                    value={input.text}
+                    onChange={(e) => handleChange(e, input.id, 'text')}
+                    placeholder="Write your text here..."
+                    rows="15"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colSpan="4">
+                  <div className="button-container">
+                    <button 
+                      type="button" 
+                      onClick={() => removeInput(input.id)}
+                    >
+                      Remove
+                    </button>
+                    <button 
+                      type="button" 
+                      onClick={addInput}
+                      disabled={inputs.length >= 5} 
+                      className="add-input-button"
+                    >
+                      Add Input
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       ))}
-      <div className="button-container">
-        <button onClick={addInput} disabled={inputs.length >= 5}>Add Input</button>
-        <button onClick={removeLastInput} disabled={inputs.length <= 1}>Remove Last Input</button>
-      </div>
     </div>
   );
 };

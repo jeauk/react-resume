@@ -8,43 +8,17 @@
   font-family: Arial, sans-serif;
 }
 
-.input-container .input-info-box {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.input-container .input-info-box .input-id {
-  font-size: 16px;
-  font-weight: bold;
-  margin-right: 15px;
-}
-
-.input-container .input-info-box button {
-  margin-right: 15px;
-  padding: 5px 10px;
+.input-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
   font-size: 14px;
-  border: none;
-  border-radius: 5px;
-  background-color: #ff4d4d;
-  color: #fff;
-  cursor: pointer;
 }
 
-.input-container .input-info-box button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.input-container .char-count {
-  font-size: 14px;
-  color: #666;
-}
-
-.input-container .input-box {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.input-container th, .input-container td {
+  padding: 5px;
+  border: 1px solid #ccc;
+  text-align: left;
 }
 
 .input-container .title-input, 
@@ -68,10 +42,43 @@
   box-sizing: border-box;
 }
 
+.input-container .char-count {
+  font-size: 14px;
+  color: #666;
+}
+
+.input-container .input-info-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.input-container .input-info-box .input-id {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.input-container .input-info-box button {
+  margin-right: 15px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4d4d; /* Remove 버튼 색상 */
+  color: #fff;
+  cursor: pointer;
+}
+
+.input-container .input-info-box button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .button-container {
   margin-top: 20px;
   display: flex;
-  gap: 10px;
+  justify-content: center; /* 중앙 정렬 */
 }
 
 .button-container button {
@@ -83,12 +90,16 @@
   transition: background-color 0.3s;
 }
 
-.button-container button:hover:not(:disabled) {
-  background-color: #007bff;
+.button-container .add-input-button {
+  background-color: #007bff; /* Add Input 버튼 색상 */
   color: #fff;
 }
 
-.button-container button:disabled {
+.button-container .add-input-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.button-container .add-input-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
