@@ -11,7 +11,7 @@ const Header = () => {
       </span>
       <span className="login">
         <a href="/1">
-          로그인
+          Login
         </a>
       </span>
     </div>
