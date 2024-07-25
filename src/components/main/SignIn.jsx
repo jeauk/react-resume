@@ -20,7 +20,6 @@ const SignIn = () => {
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value)
-                console.log(email);
               }}
               type="text" className="form-control" name="email" placeholder="email" />
           </div>
@@ -30,7 +29,6 @@ const SignIn = () => {
               value={pwd}
               onChange={(e) => {
                 setPwd(e.target.value)
-                console.log(pwd);
               }}
               type="password" className="form-control" name="pwd" placeholder="password" />
           </div>
@@ -58,10 +56,10 @@ const SignIn = () => {
                 send();
 
               }}
-              className="btn btn-primary" id="signin">Sign In</button>
+              className="btn btn-primary" id="signin">Login</button>
           </div>
         </form>
-        <button onClick={s} className="btn btn-primary" id="signup">Sign Up</button>
+        <button onClick={s} className="btn btn-primary" id="signup">회원가입</button>
       </div>
     </div>
   );
