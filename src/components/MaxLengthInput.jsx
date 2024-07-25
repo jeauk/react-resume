@@ -31,6 +31,10 @@ const MaxLengthInput = () => {
     }
   };
 
+  const openSpeller = () => {
+    window.open('http://speller.cs.pusan.ac.kr/', '_blank', 'width=846,height=708');
+  };
+
   return (
     <div>
       {inputs.map((input, index) => (
@@ -97,6 +101,13 @@ const MaxLengthInput = () => {
                       className="add-input-button"
                     >
                       Add Input
+                    </button>
+                    <button
+                      type="button"
+                      onClick={openSpeller}
+                      className="open-speller-button"
+                    >
+                      부산대 맞춤법 검사기 열기
                     </button>
                   </div>
                 </td>
