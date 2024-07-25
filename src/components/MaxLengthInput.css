@@ -1,55 +1,94 @@
-.max-length-input {
-  margin: 20px;
+.input-container {
+  width: 90%; /* 폼 너비 조정 */
+  margin: 20px auto; /* 수평 가운데 정렬 */
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #f9f9f9;
+  border-radius: 5px;
+  background-color: #fff;
   font-family: Arial, sans-serif;
 }
 
-.input-container {
-  margin-bottom: 30px; /* 요소 간의 간격을 더 넓게 설정 */
-  padding: 20px; /* 내부 패딩 추가 */
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  background-color: #ffffff;
+.input-container .input-info-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-textarea {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+.input-container .input-info-box .input-id {
   font-size: 16px;
-  box-sizing: border-box;
-  resize: none;
-  margin-bottom: 10px; /* 텍스트 영역과 문자 수 표시 사이의 간격 추가 */
+  font-weight: bold;
+  margin-right: 15px;
 }
 
-.input-container div {
-  margin-top: 10px; /* 문자 수 표시와 버튼 사이의 간격 추가 */
+.input-container .input-info-box button {
+  margin-right: 15px;
+  padding: 5px 10px;
   font-size: 14px;
-  color: #555;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
+  background-color: #ff4d4d;
+  color: #fff;
+  cursor: pointer;
+}
+
+.input-container .input-info-box button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.input-container .char-count {
+  font-size: 14px;
+  color: #666;
+}
+
+.input-container .input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-container .title-input, 
+.input-container .max-chars-input {
+  width: 100%;
+  height: 35px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.input-container textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #0056b3;
+.button-container button:hover:not(:disabled) {
+  background-color: #007bff;
+  color: #fff;
 }
 
-button:disabled {
-  background-color: #cccccc;
+.button-container button:disabled {
+  background-color: #ccc;
   cursor: not-allowed;
 }
