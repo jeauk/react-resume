@@ -1,36 +1,29 @@
-
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Header {
+  position: absolute; /* 부모 요소를 기준으로 위치를 설정 */
+  top: 10px; /* 상단에서 10px 떨어진 위치 */
+  right: 10px; /* 오른쪽에서 10px 떨어진 위치 */
+  /* 추가적인 스타일링 */
+  font-size: 16px;
+  color: #007BFF;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Header a {
+  text-decoration: none; /* 링크 밑줄 제거 */
+  color: inherit; /* 부모 요소의 색상 상속 */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Header a:hover {
+  color: #0056b3; /* 호버 시 색상 변경 */
 }
 
-.App-link {
-  color: #61dafb;
+.page {
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Logo {
+  position: fixed; /* 부모 요소를 기준으로 위치를 설정 */
+  top: 10px; /* 상단에서 10px 떨어진 위치 */
+  left: 10px;
+  font-size: 16px;
 }
+ 
