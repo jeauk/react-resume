@@ -8,6 +8,7 @@ const SignUp = () => {
   const [pwdcheck, setPwdcheck] = useState('');
   const [name, setName] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [error, setError] = useState('');
   const a = pwd === pwdcheck;
 
   const validateEmail = (email) => {
@@ -28,6 +29,7 @@ const SignUp = () => {
     setEmail(emailValue);
     if (!validateEmail(emailValue)) {
       setEmailError('올바른 이메일 형식을 입력하세요.');
+      
     } else {
       setEmailError('');
     }
@@ -54,6 +56,7 @@ const SignUp = () => {
             />
           </div>
           {emailError && <div className="text-danger">{emailError}</div>}
+          {error && <div className="text-danger">{error}</div>}
           <div className="mb-3">
             <label htmlFor="pwd">Password: </label>
             <input
@@ -108,7 +111,7 @@ const SignUp = () => {
                     alert(data.msg);
                     navigate('/1');
                   } else {
-                    alert('complete');
+                    setError('이메일 중복');
                   }
                 }
                 send();

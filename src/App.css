@@ -41,3 +41,7 @@ label + input + label { display: none !important; }
  color: red;
  display: block !important;
 }
+
+.text-danger{
+  color: red;
+}
