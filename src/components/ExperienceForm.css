@@ -1,7 +1,7 @@
 .experienceForm {
   width: 90%;
   margin: 20px auto;
-  padding: 15px; /* 패딩 축소 */
+  padding: 20px; /* 패딩 축소 */
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
@@ -23,6 +23,13 @@
 .experienceForm th, .experienceForm td {
   padding: 8px; /* 패딩 축소 */
   border: 1px solid #ccc; /* 모든 셀에 경계선 추가 */
+  text-align: left;
+}
+
+.experienceForm th {
+  width: 19%;
+  padding: 8px; /* 패딩 축소 */
+  border: 1px solid #ccc;
   text-align: left;
 }
 
