@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './HighSchoolForm.css';  // CSS 파일을 임포트
 
-const HighSchoolForm = () => {
+const HighSchoolForm = ({ setHighSchoolForm }) => {
   const [highSchools, setHighSchools] = useState([{
     name: '',
     startDate: null,
@@ -14,15 +14,21 @@ const HighSchoolForm = () => {
 
   const handleChange = (index, e) => {
     const { name, value } = e.target;
-    const newHighSchools = highSchools.slice();
+    const newHighSchools = [...highSchools];
     newHighSchools[index][name] = value;
     setHighSchools(newHighSchools);
+
+    // props.setHighSchoolForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    setHighSchoolForm(newHighSchools);
   };
 
   const handleDateChange = (index, date, name) => {
-    const newHighSchools = highSchools.slice();
+    const newHighSchools = [...highSchools];
     newHighSchools[index][name] = date;
     setHighSchools(newHighSchools);
+
+    // props.setHighSchoolForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    setHighSchoolForm(newHighSchools);
   };
 
   const handleSubmit = (e) => {
@@ -32,10 +38,10 @@ const HighSchoolForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="highSchoolForm">
+      <h2>학력</h2>
       {highSchools.map((highSchool, index) => (
         <table key={index}>
           <tbody>
-            <h2>학력</h2>
             <tr>
               <th><label htmlFor={`name-${index}`}>고등학교명</label></th>
               <td colSpan="3">

@@ -52,18 +52,6 @@ const UniversityInput = ({ education, index, handleChange, handleDateChange }) =
         </td>
       </tr>
       <tr>
-      <th><label htmlFor={`startDate-${index}`}>입학일</label></th>
-        <td>
-          <DatePicker
-            id={`startDate-${index}`}
-            selected={education.startDate}
-            onChange={(date) => handleDateChange(index, date, 'startDate')}
-            dateFormat="yyyy/MM/dd"
-            placeholderText="입학일"
-            className="date-picker"
-            showPopperArrow={false}
-          />
-        </td>
         <th><label htmlFor={`endDate-${index}`}>졸업일</label></th>
         <td>
           <DatePicker
@@ -101,11 +89,10 @@ const UniversityInput = ({ education, index, handleChange, handleDateChange }) =
   </table>
 );
 
-const EducationForm = () => {
+const EducationForm = (props) => {
   const [educations, setEducations] = useState([{
     school: '',
     degree: '',
-    fieldOfStudy: '',
     startDate: null,
     endDate: null,
     graduationStatus: ''
@@ -113,15 +100,21 @@ const EducationForm = () => {
 
   const handleChange = (index, e) => {
     const { name, value } = e.target;
-    const newEducations = educations.slice();
+    const newEducations = [...educations];
     newEducations[index][name] = value;
     setEducations(newEducations);
+
+    // props.setEducationForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    props.setEducationForm(newEducations);
   };
 
   const handleDateChange = (index, date, name) => {
-    const newEducations = educations.slice();
+    const newEducations = [...educations];
     newEducations[index][name] = date;
     setEducations(newEducations);
+
+    // props.setEducationForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    props.setEducationForm(newEducations);
   };
 
   const handleSubmit = (e) => {

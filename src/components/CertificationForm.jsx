@@ -52,7 +52,7 @@ const CertificationInput = ({ certification, index, handleChange, deleteCertific
   </div>
 );
 
-const CertificationForm = () => {
+const CertificationForm = (props) => {
   const [certifications, setCertifications] = useState([{
     name: '',
     issuingOrganization: '',
@@ -61,17 +61,24 @@ const CertificationForm = () => {
 
   const handleChange = (index, e) => {
     const { name, value } = e.target;
-    const newCertifications = certifications.slice();
+    const newCertifications = [...certifications];
     newCertifications[index][name] = value;
     setCertifications(newCertifications);
+
+    // props.setCertificationForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    props.setCertificationForm(newCertifications);
   };
 
   const addCertification = () => {
-    setCertifications([...certifications, {
+    const newCertifications = [...certifications, {
       name: '',
       issuingOrganization: '',
       issueDate: ''
-    }]);
+    }];
+    setCertifications(newCertifications);
+
+    // props.setCertificationForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    props.setCertificationForm(newCertifications);
   };
 
   const deleteCertification = (index) => {
@@ -79,6 +86,9 @@ const CertificationForm = () => {
       const newCertifications = certifications.slice();
       newCertifications.splice(index, 1);
       setCertifications(newCertifications);
+
+      // props.setCertificationForm를 사용하여 부모 컴포넌트의 상태 업데이트
+      props.setCertificationForm(newCertifications);
     }
   };
 

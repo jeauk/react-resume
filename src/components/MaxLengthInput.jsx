@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './MaxLengthInput.css';
 import { v4 as uuidv4 } from 'uuid';
 
-const MaxLengthInput = () => {
+const MaxLengthInput = (props) => {
   const [inputs, setInputs] = useState([{ id: uuidv4(), title: '', text: '', maxChars: 1000 }]);
 
   const handleChange = (e, id, field) => {
@@ -16,18 +16,29 @@ const MaxLengthInput = () => {
       return input;
     });
     setInputs(newInputs);
+
+    // props.setMaxLengthInput를 사용하여 부모 컴포넌트의 상태 업데이트
+    props.setMaxLengthInput(newInputs);
   };
 
   const addInput = () => {
     if (inputs.length < 5) {
       const newInput = { id: uuidv4(), title: '', text: '', maxChars: 1000 };
-      setInputs([...inputs, newInput]);
+      const newInputs = [...inputs, newInput];
+      setInputs(newInputs);
+
+      // props.setMaxLengthInput를 사용하여 부모 컴포넌트의 상태 업데이트
+      props.setMaxLengthInput(newInputs);
     }
   };
 
   const removeInput = (id) => {
     if (inputs.length > 1) {
-      setInputs(inputs.filter(input => input.id !== id));
+      const newInputs = inputs.filter(input => input.id !== id);
+      setInputs(newInputs);
+
+      // props.setMaxLengthInput를 사용하여 부모 컴포넌트의 상태 업데이트
+      props.setMaxLengthInput(newInputs);
     }
   };
 

@@ -3,7 +3,7 @@ import './ExperienceForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const ExperienceForm = () => {
+const ExperienceForm = ({ setExperienceForm }) => {
   const [experiences, setExperiences] = useState([{
     company: '',
     position: '',
@@ -16,19 +16,25 @@ const ExperienceForm = () => {
 
   const handleChange = (index, e) => {
     const { name, value } = e.target;
-    const newExperiences = experiences.slice();
+    const newExperiences = [...experiences];
     newExperiences[index][name] = value;
     setExperiences(newExperiences);
+
+    // setExperienceForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    setExperienceForm(newExperiences);
   };
 
   const handleDateChange = (index, date, name) => {
-    const newExperiences = experiences.slice();
+    const newExperiences = [...experiences];
     newExperiences[index][name] = date;
     setExperiences(newExperiences);
+
+    // setExperienceForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    setExperienceForm(newExperiences);
   };
 
   const addExperience = () => {
-    setExperiences([...experiences, {
+    const newExperiences = [...experiences, {
       company: '',
       position: '',
       role: '',
@@ -36,7 +42,11 @@ const ExperienceForm = () => {
       endDate: null,
       employmentStatus: '',
       description: ''
-    }]);
+    }];
+    setExperiences(newExperiences);
+
+    // setExperienceForm를 사용하여 부모 컴포넌트의 상태 업데이트
+    setExperienceForm(newExperiences);
   };
 
   const deleteExperience = (index) => {
@@ -44,6 +54,9 @@ const ExperienceForm = () => {
       const newExperiences = experiences.slice();
       newExperiences.splice(index, 1);
       setExperiences(newExperiences);
+
+      // setExperienceForm를 사용하여 부모 컴포넌트의 상태 업데이트
+      setExperienceForm(newExperiences);
     }
   };
 
