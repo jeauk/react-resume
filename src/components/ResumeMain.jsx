@@ -64,9 +64,9 @@ const ResumeMain = () => {
       certificationForm,
       maxLengthInput
     };
-
+  
     console.log("Sending data:", JSON.stringify(data, null, 2)); // 데이터 콘솔에 출력
-
+  
     try {
       const response = await fetch('http://localhost:8080/resume/data', {
         method: 'POST',
@@ -75,11 +75,11 @@ const ResumeMain = () => {
         },
         body: JSON.stringify(data)
       });
-
+  
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-
+  
       const result = await response.json();
       console.log(result);
     } catch (error) {

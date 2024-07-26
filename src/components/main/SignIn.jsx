@@ -27,14 +27,15 @@ const SignIn = () => {
     const data = await res.json();
     if (data.code === 200) {
       alert(data.msg);
-      navigate('/');
-      sessionStorage.setItem("jwt", data.result);
+      sessionStorage.setItem("jwt", data.jwt);  // JWT 토큰 저장
       sessionStorage.setItem("name", data.name);
-      sessionStorage.setItem("id", data.id);
+      sessionStorage.setItem("id", data.id);  // 사용자 ID 저장
+      navigate('/');
     } else {
       alert(data.msg);
     }
   };
+  
 
   return (
     <div className="container">

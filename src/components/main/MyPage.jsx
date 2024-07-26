@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const MyPage = () => {
   const [resumeData, setResumeData] = useState(null);
-  const userId = 1; // 사용자의 ID를 여기에 설정
+  const userId = sessionStorage.getItem('id'); // 세션 스토리지에서 사용자 ID를 가져옴
 
   useEffect(() => {
     const fetchData = async () => {
