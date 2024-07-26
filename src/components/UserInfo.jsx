@@ -26,11 +26,36 @@ const UserInfo = ({ setUserInfo }) => {
   };
 
   const setPreviewImg = (event) => {
-    var reader = new FileReader();
-    reader.onload = function(event) {
-      setMainImg(event.target.result);
-    };
-    reader.readAsDataURL(event.target.files[0]);
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setMainImg(event.target.result);
+      };
+      reader.readAsDataURL(file);
+      uploadImage(file);
+    }
+  };
+
+  const uploadImage = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://localhost:8080/upload', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.text();
+      console.log(result); // 파일 업로드 성공 메시지
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
   };
 
   const handlePhoneInput = (event) => {
