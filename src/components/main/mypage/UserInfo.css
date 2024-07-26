@@ -1,0 +1,114 @@
+.userInfo {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px; /* 패딩 축소 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 12px; /* 기본 폰트 크기 축소 */
+}
+
+.userInfo h2 {
+  margin-bottom: 15px; /* 마진 축소 */
+  font-size: 18px; /* 폰트 크기 축소 */
+}
+
+.userInfo .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px; /* 폰트 크기 축소 */
+}
+
+
+.userInfo th {
+  width: 11%;
+  padding: 8px; /* 패딩 축소 */
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.userInfo td {
+  padding: 8px; /* 패딩 축소 */
+  border: 1px solid #ccc;
+  width: 27.5%;
+}
+
+.userInfo tr:first-child th:first-child {
+  width:0%;
+}
+
+.userInfo textarea, .userInfo input[type="text"], .userInfo input[type="email"] {
+  height: 30px; /* 높이 축소 */
+  padding: 4px; /* 패딩 축소 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px; /* 폰트 크기 축소 */
+}
+
+.userInfo .address-wrapper {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+.userInfo .email-wrapper {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+.userInfo .phone-wrapper {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+.userInfo .name-wrapper {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo .address-wrapper input[type="text"] {
+  width: auto;
+  transition: width 0.3s ease;
+}
+
+.userInfo input[type="text"][id="address"]:focus, .userInfo input[type="text"][id="detailedAddress"]:focus {
+  width: 100%;
+}
+
+.userInfo textarea {
+  resize: none;
+}
+
+.userInfo input[type="file"] {
+  margin-bottom: 8px; /* 마진 축소 */
+  font-size: 14px; /* 폰트 크기 축소 */
+}
+
+.userInfo .postcode-search-btn {
+  padding: 4px 8px; /* 패딩 축소 */
+  font-size: 12px; /* 폰트 크기 축소 */
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.userInfo .postcode-search-btn:hover {
+  background-color: #e5e5e5;
+}
+
+.userInfo input[readonly] {
+  cursor: pointer;
+}
+
+.userInfo img {
+  max-width: 150px; /* 사진 크기 축소 */
+  max-height: 200px; /* 사진 크기 축소 */
+}
+

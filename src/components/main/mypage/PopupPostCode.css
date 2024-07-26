@@ -1,0 +1,15 @@
+.postCode_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001; /* 팝업 창보다 앞에 위치하도록 설정 */
+}
+
+.postCode_btn:hover {
+  background-color: #e5e5e5;
+}

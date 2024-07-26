@@ -1,0 +1,85 @@
+.certificationForm {
+    width: 90%; /* 폼 너비 조정 */
+    margin: 20px auto; /* 수평 가운데 정렬 */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  .certification-section {
+    margin-bottom: 20px; /* 테이블 간격 조정 */
+  }
+  
+  .certificationForm table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .certificationForm th, .certificationForm td {
+    padding: 5px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+
+  .certificationForm th {
+    width: 19%;
+    padding: 8px; /* 패딩 축소 */
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .certificationForm input[type="text"] {
+    width: 100%;
+    height: 25px; /* 높이 줄이기 */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px; /* 글꼴 크기 줄이기 */
+    box-sizing: border-box;
+    margin: 3px 0; /* 여백 줄이기 */
+  }
+  
+  .full-width {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .certificationForm input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5); /* 그림자 줄이기 */
+    outline: none;
+  }
+  
+  .deleteButton {
+    padding: 5px 10px;
+    border: none;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px; /* 버튼 위쪽 여백 조정 */
+  }
+  
+  .addButton, .submitButton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .addButton:hover, .submitButton:hover, .deleteButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .addButton:focus, .submitButton:focus, .deleteButton:focus {
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+  }

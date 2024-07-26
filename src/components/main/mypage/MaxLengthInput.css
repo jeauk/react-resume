@@ -1,0 +1,147 @@
+.input-container {
+  width: 90%; /* 폼 너비 조정 */
+  margin: 20px auto; /* 수평 가운데 정렬 */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.input-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 14px;
+  table-layout: fixed; /* 표의 크기 고정 */
+}
+
+.input-container th, .input-container td {
+  padding: 5px;
+  border: 1px solid #ccc;
+  text-align: left;
+  overflow: hidden; /* 셀 내용이 넘치는 것을 방지 */
+  text-overflow: ellipsis; /* 넘치는 내용에 대해 '...' 표시 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+.input-container th {
+  width: 5%; /* 헤더 셀의 너비 고정 */
+}
+
+.input-container td {
+  width: 25%; /* 데이터 셀의 너비 고정 */
+}
+
+.input-container .title-input, 
+.input-container .max-chars-input {
+  width: 100%;
+  max-width: 100%; /* 입력 필드가 셀의 최대 너비를 초과하지 않도록 설정 */
+  height: 35px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.open-speller-button {
+  background-color: #28a745; /* Green color for the button */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.open-speller-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+.input-container textarea {
+  width: 100%;
+  max-width: 100%; /* 텍스트 영역이 셀의 최대 너비를 초과하지 않도록 설정 */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.input-container .char-count {
+  font-size: 14px;
+  color: #666;
+}
+
+.input-container .input-info-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.input-container .input-info-box .input-id {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.input-container .input-info-box button {
+  margin-right: 15px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff4d4d; /* Remove 버튼 색상 */
+  color: #fff;
+  cursor: pointer;
+}
+
+.input-container .input-info-box button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px; /* 버튼 간격 설정 */
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container .add-input-button {
+  background-color: #007bff; /* Add 버튼 색상 */
+  color: #fff;
+}
+
+.button-container .add-input-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.button-container .add-input-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-container .remove-button {
+  background-color: #ff4d4d; /* Remove 버튼 색상 */
+  color: #fff;
+}
+
+.button-container .remove-button:hover:not(:disabled) {
+  background-color: #cc0000;
+}
+
+.button-container .remove-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

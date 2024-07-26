@@ -1,0 +1,66 @@
+.experienceForm {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px; /* 패딩 축소 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 12px; /* 기본 폰트 크기 축소 */
+}
+
+.experienceForm h2 {
+  margin-bottom: 15px; /* 마진 축소 */
+  font-size: 18px; /* 폰트 크기 축소 */
+}
+
+.experienceForm table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px; /* 폰트 크기 축소 */
+}
+
+.experienceForm th, .experienceForm td {
+  padding: 8px; /* 패딩 축소 */
+  border: 1px solid #ccc; /* 모든 셀에 경계선 추가 */
+  text-align: left;
+}
+
+.experienceForm th {
+  width: 19%;
+  padding: 8px; /* 패딩 축소 */
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.experienceForm input[type="text"], .experienceForm select, .experienceForm textarea, .experienceForm .datePicker {
+  width: 100%; /* 전체 폭을 차지하도록 */
+  padding: 4px; /* 패딩 축소 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px; /* 입력 필드 폰트 크기 축소 */
+  box-sizing: border-box; /* 패딩과 경계선을 포함한 전체 크기 설정 */
+}
+
+.experienceForm .companyInput {
+  width: 100%; /* 회사명 입력 칸의 너비를 100%로 설정 */
+}
+
+.experienceForm textarea {
+  resize: none;
+  height: 60px; /* 높이를 px 단위로 설정 */
+}
+
+.deleteButton, .addButton {
+  margin-top: 10px; /* 마진 축소 */
+  padding: 4px 8px; /* 패딩 축소 */
+  font-size: 12px; /* 버튼 폰트 크기 축소 */
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deleteButton:hover, .addButton:hover {
+  background-color: #e5e5e5;
+}
