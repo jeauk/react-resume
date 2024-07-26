@@ -30,6 +30,7 @@ const SignIn = () => {
       navigate('/');
       sessionStorage.setItem("jwt", data.result);
       sessionStorage.setItem("name", data.name);
+      sessionStorage.setItem("id", data.id);
     } else {
       alert(data.msg);
     }

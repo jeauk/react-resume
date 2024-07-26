@@ -47,13 +47,16 @@ const ResumeMain = () => {
     issueDate: ''
   }]);
 
-  const [maxLengthInput, setMaxLengthInput] = useState({
+  const [maxLengthInput, setMaxLengthInput] = useState([{
     title: '',
     text: '',
-  });
+    maxChars: 1000
+  }]);
 
   const handleSubmit = async () => {
+    const id = sessionStorage.getItem('id');
     const data = {
+      id,
       userInfo,
       highSchoolForm,
       educationForm,
@@ -65,7 +68,7 @@ const ResumeMain = () => {
     console.log("Sending data:", JSON.stringify(data, null, 2)); // 데이터 콘솔에 출력
 
     try {
-      const response = await fetch('http://localhost:8080', {
+      const response = await fetch('http://localhost:8080/resume/data', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
