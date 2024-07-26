@@ -23,7 +23,7 @@ const MaxLengthInput = (props) => {
 
   const addInput = () => {
     if (inputs.length < 5) {
-      const newInput = { id: uuidv4(), title: '', text: '', maxChars: 1000 };
+      const newInput = { uuid: uuidv4(), title: '', text: '', maxChars: 1000 };
       const newInputs = [...inputs, newInput];
       setInputs(newInputs);
 
