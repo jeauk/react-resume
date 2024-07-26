@@ -3,11 +3,11 @@ import './MaxLengthInput.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const MaxLengthInput = (props) => {
-  const [inputs, setInputs] = useState([{ id: uuidv4(), title: '', text: '', maxChars: 1000 }]);
+  const [inputs, setInputs] = useState([{ uuid: uuidv4(), title: '', text: '', maxChars: 1000 }]);
 
-  const handleChange = (e, id, field) => {
+  const handleChange = (e, uuid, field) => {
     const newInputs = inputs.map(input => {
-      if (input.id === id) {
+      if (input.uuid === uuid) {
         if (field === 'text' && e.target.value.length > input.maxChars) {
           return input;
         }
@@ -32,9 +32,9 @@ const MaxLengthInput = (props) => {
     }
   };
 
-  const removeInput = (id) => {
+  const removeInput = (uuid) => {
     if (inputs.length > 1) {
-      const newInputs = inputs.filter(input => input.id !== id);
+      const newInputs = inputs.filter(input => input.uuid !== uuid);
       setInputs(newInputs);
 
       // props.setMaxLengthInput를 사용하여 부모 컴포넌트의 상태 업데이트
@@ -49,30 +49,30 @@ const MaxLengthInput = (props) => {
   return (
     <div>
       {inputs.map((input, index) => (
-        <div key={input.id} className="input-container">
+        <div key={input.uuid} className="input-container">
           <table>
             <tbody>
               <tr>
-                <th><label htmlFor={`title-${input.id}`}>유형</label></th>
+                <th><label htmlFor={`title-${input.uuid}`}>유형</label></th>
                 <td colSpan="3">
                   <input
                     type="text"
-                    id={`title-${input.id}`}
+                    id={`title-${input.uuid}`}
                     value={input.title}
-                    onChange={(e) => handleChange(e, input.id, 'title')}
+                    onChange={(e) => handleChange(e, input.uuid, 'title')}
                     placeholder="자기소개서 유형"
                     className="title-input"
                   />
                 </td>
               </tr>
               <tr>
-                <th><label htmlFor={`maxChars-${input.id}`}>글자수</label></th>
+                <th><label htmlFor={`maxChars-${input.uuid}`}>글자수</label></th>
                 <td>
                   <input
                     type="number"
-                    id={`maxChars-${input.id}`}
+                    id={`maxChars-${input.uuid}`}
                     value={input.maxChars}
-                    onChange={(e) => handleChange(e, input.id, 'maxChars')}
+                    onChange={(e) => handleChange(e, input.uuid, 'maxChars')}
                     placeholder="최대 글자수 설정"
                     className="max-chars-input"
                   />
@@ -85,12 +85,12 @@ const MaxLengthInput = (props) => {
                 </td>
               </tr>
               <tr>
-                <th><label htmlFor={`text-${input.id}`}>내용</label></th>
+                <th><label htmlFor={`text-${input.uuid}`}>내용</label></th>
                 <td colSpan="3">
                   <textarea
-                    id={`text-${input.id}`}
+                    id={`text-${input.uuid}`}
                     value={input.text}
-                    onChange={(e) => handleChange(e, input.id, 'text')}
+                    onChange={(e) => handleChange(e, input.uuid, 'text')}
                     placeholder="내용을 입력하세요"
                     rows="15"
                   />
@@ -101,7 +101,7 @@ const MaxLengthInput = (props) => {
                   <div className="button-container">
                     <button
                       type="button"
-                      onClick={() => removeInput(input.id)}
+                      onClick={() => removeInput(input.uuid)}
                       className="remove-button"
                     >Delete
                     </button>
