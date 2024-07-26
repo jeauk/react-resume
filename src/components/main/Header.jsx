@@ -7,7 +7,7 @@ const Header = () => {
     <div className='Header'>
       <div className="Logo">
         <a href="/">
-          Logo
+          Home
         </a>
       </div>
       <span className="name">

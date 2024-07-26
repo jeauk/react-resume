@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './Main.module.css';
 import { useNavigate } from 'react-router-dom';
+import logo from './logo.png'
 
 const Main = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,7 +21,12 @@ const Main = () => {
     <div className={styles['page-container']}>
       <div className={styles.search}>
         <div className={styles.title}>
-          <h2 onClick={() => navigate('/resume')}>CR</h2>
+        <img 
+            src={logo} 
+            alt="Logo" 
+            onClick={() => navigate('/resume')} 
+            className={styles.logo} 
+          />
         </div>
         <div className={styles.search_box}>
           <input
