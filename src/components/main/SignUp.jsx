@@ -1,14 +1,14 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
-  const [pwd, setPwd] = useState();
-  const [pwdcheck, setPwdcheck] = useState();
-  const [name, setName] = useState();
+  const [email, setEmail] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [pwdcheck, setPwdcheck] = useState('');
+  const [name, setName] = useState('');
   const [emailError, setEmailError] = useState('');
-  const a = pwd === pwdcheck
+  const a = pwd === pwdcheck;
 
   const validateEmail = (email) => {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -17,11 +17,11 @@ const SignUp = () => {
 
   const pwds = (e) => {
     setPwd(e.target.value);
-  }
+  };
 
   const passwordch = (e) => {
     setPwdcheck(e.target.value);
-  }
+  };
 
   const emails = (e) => {
     const emailValue = e.target.value;
@@ -31,10 +31,12 @@ const SignUp = () => {
     } else {
       setEmailError('');
     }
-  }
+  };
+
   return (
-    <div className="container mt-5">
-      <div className="row">
+    <div className="container">
+      <div className="form-container">
+        <h2>Sign Up</h2>
         <form method="post" action="/signup" onSubmit={(e) => {
           e.preventDefault();
         }}>
@@ -45,15 +47,23 @@ const SignUp = () => {
               required
               value={email}
               onChange={emails}
-              type="email" className="form-control" id="email" name="email" />
+              type="email"
+              className="form-control"
+              id="email"
+              name="email"
+            />
           </div>
           {emailError && <div className="text-danger">{emailError}</div>}
           <div className="mb-3">
-            <label for="pwd">Password: </label>
+            <label htmlFor="pwd">Password: </label>
             <input
               value={pwd}
               onChange={pwds}
-              type="password" className="form-control" id="pwd" name="pwd" />
+              type="password"
+              className="form-control"
+              id="pwd"
+              name="pwd"
+            />
           </div>
 
           <div className="form-group">
@@ -62,23 +72,24 @@ const SignUp = () => {
               type="password"
               id="confirmPassword"
               name="confirmPassword"
-              required  //여기도 state만들고
+              required
               value={pwdcheck}
               onChange={passwordch}
-            />{!a &&
-              <label id="pw-match" className="pw-match">비밀번호가 일치해야 됩니다.</label>
-
-            }
+              className="form-control"
+            />
+            {!a && <label id="pw-match" className="pw-match">비밀번호가 일치해야 됩니다.</label>}
           </div>
 
           <div className="mb-3">
-            <label for="name">Name: </label>
+            <label htmlFor="name">Name: </label>
             <input
               value={name}
-              onChange={(e) => {
-                setName(e.target.value)
-              }}
-              type="text" className="form-control" id="name" name="name" />
+              onChange={(e) => setName(e.target.value)}
+              type="text"
+              className="form-control"
+              id="name"
+              name="name"
+            />
           </div>
           <div className="d-grid gap-2">
             <button
@@ -89,10 +100,7 @@ const SignUp = () => {
                     method: 'post',
                     headers: {
                       'content-type': 'application/json'
-
-
                     },
-
                     body: JSON.stringify({ email: email, password: pwd, name: name })
                   });
                   const data = await res.json();
@@ -103,18 +111,18 @@ const SignUp = () => {
                     alert('complete');
                   }
                 }
-
-                send()
-
-              }
-              }
-              className="btn btn-primary" id="signup">Sign Up</button>
+                send();
+              }}
+              className="btn btn-primary"
+              id="signup"
+            >
+              Sign Up
+            </button>
           </div>
 
         </form>
       </div>
     </div>
-
   );
 };
 
