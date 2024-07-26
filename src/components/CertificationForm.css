@@ -25,7 +25,10 @@
   }
 
   .certificationForm th {
-    width: 20%; /* 제목 셀 너비 조정 */
+    width: 11%;
+    padding: 8px; /* 패딩 축소 */
+    border: 1px solid #ccc;
+    text-align: left;
   }
   
   .certificationForm input[type="text"] {
