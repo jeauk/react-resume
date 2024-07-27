@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MaxLengthInput from "./MaxLengthInput";
 import UserInfo from "./UserInfo";
 import HighSchoolForm from "./HighSchoolForm";
@@ -7,6 +8,8 @@ import ExperienceForm from "./ExperienceForm";
 import CertificationForm from "./CertificationForm";
 
 const ResumeMain = () => {
+  const navigate = useNavigate();
+
   const [userInfo, setUserInfo] = useState({
     name: '', 
     phone: '', 
@@ -55,6 +58,7 @@ const ResumeMain = () => {
 
   const handleSubmit = async () => {
     const id = sessionStorage.getItem('id');
+    
     const data = {
       id,
       userInfo,
@@ -80,13 +84,15 @@ const ResumeMain = () => {
         throw new Error('Network response was not ok');
       }
   
-      const result = await response.json();
+      const text = await response.text();
+      const result = text ? JSON.parse(text) : {};
       console.log(result);
+      navigate('/');
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
   };
-
+  
   return (
     <div className="ResumeMain">
       <UserInfo setUserInfo={setUserInfo} />
