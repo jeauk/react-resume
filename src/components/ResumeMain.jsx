@@ -6,6 +6,7 @@ import HighSchoolForm from "./HighSchoolForm";
 import EducationForm from "./EducationForm";
 import ExperienceForm from "./ExperienceForm";
 import CertificationForm from "./CertificationForm";
+import './ResumeMain.css';
 
 const ResumeMain = () => {
   const navigate = useNavigate();
@@ -101,7 +102,7 @@ const ResumeMain = () => {
       <ExperienceForm setExperienceForm={setExperienceForm} />
       <CertificationForm setCertificationForm={setCertificationForm} />
       <MaxLengthInput setMaxLengthInput={setMaxLengthInput} />
-      <button onClick={handleSubmit}>Submit</button>
+      <button className="b" onClick={handleSubmit}>저장</button>
     </div>
   );
 };
