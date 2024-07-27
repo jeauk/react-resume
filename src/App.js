@@ -13,15 +13,12 @@ import MyPage from './components/main/MyPage';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter> 
-      
-      <Header />
-        <Routes>
-          <Route path="/resume" element={<ResumeMain />} />
-          
-        </Routes>
+      <BrowserRouter>
+
+        <Header />
 
         <Routes>
+          <Route path="/resume" element={<ResumeMain />} />
           <Route path="/" element={<Main />} />
           <Route path="/1" element={<SignIn />} />
           <Route path="/2" element={<SignUp />} />
