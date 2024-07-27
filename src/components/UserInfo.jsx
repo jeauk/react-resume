@@ -9,7 +9,8 @@ const UserInfo = ({ setUserInfo }) => {
     phone: '', 
     address: '', 
     detailedAddress: '', 
-    email: ''
+    email: '',
+    profileImagePath: '' // 추가: 프로필 이미지 경로
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,7 +43,7 @@ const UserInfo = ({ setUserInfo }) => {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:8080/upload', {
+      const response = await fetch('http://localhost:8080/resume/upload', {
         method: 'POST',
         body: formData
       });
@@ -51,8 +52,11 @@ const UserInfo = ({ setUserInfo }) => {
         throw new Error('Network response was not ok');
       }
 
-      const result = await response.text();
-      console.log(result); // 파일 업로드 성공 메시지
+      const filePath = await response.text();
+      console.log(filePath); // 파일 경로 출력
+
+      setUserInfoLocal({ ...userInfo, profileImagePath: filePath });
+      setUserInfo({ ...userInfo, profileImagePath: filePath });
     } catch (error) {
       console.error('Error uploading file:', error);
     }

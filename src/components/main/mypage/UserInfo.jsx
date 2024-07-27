@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './UserInfo.css';
 
 const UserInfo = ({ userInfo, readOnly }) => {
+  const [profileImage, setProfileImage] = useState('');
+
+  useEffect(() => {
+    if (userInfo.profileImagePath) {
+      setProfileImage(`http://localhost:8080${userInfo.profileImagePath}`);
+    }
+  }, [userInfo]);
 
   return (
     <div className="userInfo">
@@ -15,7 +21,7 @@ const UserInfo = ({ userInfo, readOnly }) => {
                 <th className='img_th' rowSpan="3">
                   <img 
                     alt="메인사진" 
-                    src={userInfo.mainImg || "https://via.placeholder.com/300x400"} 
+                    src={profileImage || 'https://via.placeholder.com/300x400'} 
                   />
                 </th>
                 <th><label htmlFor="name">이름</label></th>
