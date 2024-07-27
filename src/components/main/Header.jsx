@@ -19,7 +19,12 @@ const Header = () => {
         }
       </span>
       <span className="page">
-        <a href="/3">My page</a>
+        {
+          jwt ?
+            <a href="/3">My page</a>
+            :
+            <p></p>
+        }
       </span>
       <span className="login">
         {

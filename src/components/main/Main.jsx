@@ -6,6 +6,7 @@ import logo from './logo.png'
 const Main = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const jwt = sessionStorage.getItem('jwt')
 
   useEffect(() => {
     // Main 컴포넌트가 마운트될 때 body의 overflow를 hidden으로 설정
@@ -21,12 +22,23 @@ const Main = () => {
     <div className={styles['page-container']}>
       <div className={styles.search}>
         <div className={styles.title}>
-        <img 
+          {
+            jwt
+            ?
+            <img 
             src={logo} 
             alt="Logo" 
             onClick={() => navigate('/resume')} 
-            className={styles.logo} 
-          />
+            className={styles.logo}
+            />
+            :
+            <img 
+            src={logo} 
+            alt="Logo" 
+            onClick={() => navigate('/1')} 
+            className={styles.logo}
+            />
+          }
         </div>
         <div className={styles.search_box}>
           <input
