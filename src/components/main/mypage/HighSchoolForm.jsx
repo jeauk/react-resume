@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './HighSchoolForm.css';  // CSS 파일을 임포트
 
 // HighSchoolForm 컴포넌트 정의
-const HighSchoolForm = ({ highSchools = [], readOnly }) => {
+const HighSchoolForm = ({ highSchools = [] }) => {
   return (
     <form className="highSchoolForm">
       <h2>학력</h2>
@@ -17,7 +17,6 @@ const HighSchoolForm = ({ highSchools = [], readOnly }) => {
                 <input
                   value={highSchool.name}
                   className="full-width" // CSS 클래스 적용
-                  readOnly={readOnly} // 읽기 전용으로 설정
                 />
               </td>
             </tr>
@@ -27,7 +26,6 @@ const HighSchoolForm = ({ highSchools = [], readOnly }) => {
                 <input
                   value={highSchool.majorField}
                   className="full-width" // CSS 클래스 적용
-                  readOnly={readOnly} // 읽기 전용으로 설정
                 />
               </td>
               <th>입학일</th>
@@ -37,7 +35,6 @@ const HighSchoolForm = ({ highSchools = [], readOnly }) => {
                   dateFormat="yyyy/MM/dd" // 날짜 포맷 설정
                   className="date-picker" // CSS 클래스 적용
                   showPopperArrow={false} // 팝업 화살표 숨김
-                  disabled={readOnly} // 읽기 전용으로 설정
                 />
               </td>
             </tr>
@@ -47,7 +44,6 @@ const HighSchoolForm = ({ highSchools = [], readOnly }) => {
                 <select
                   value={highSchool.graduationStatus}
                   className="full-width" // CSS 클래스 적용
-                  disabled={readOnly} // 읽기 전용으로 설정
                 >
                   <option value="">졸업여부</option>
                   <option value="재학">재학</option>
@@ -65,7 +61,6 @@ const HighSchoolForm = ({ highSchools = [], readOnly }) => {
                   dateFormat="yyyy/MM/dd" // 날짜 포맷 설정
                   className="date-picker" // CSS 클래스 적용
                   showPopperArrow={false} // 팝업 화살표 숨김
-                  disabled={readOnly} // 읽기 전용으로 설정
                 />
               </td>
             </tr>

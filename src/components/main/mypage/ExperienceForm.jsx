@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 // ExperienceForm 컴포넌트 정의
-const ExperienceForm = ({ experienceForm = [], readOnly }) => {
+const ExperienceForm = ({ experienceForm = [] }) => {
   return (
     <div>
       <form className="experienceForm">
@@ -21,7 +21,6 @@ const ExperienceForm = ({ experienceForm = [], readOnly }) => {
                       value={experience.company}
                       placeholder="회사명"
                       className="companyInput"
-                      readOnly
                     />
                   </td>
                 </tr>
@@ -34,7 +33,6 @@ const ExperienceForm = ({ experienceForm = [], readOnly }) => {
                       placeholderText="입사일"
                       className="datePicker"
                       showPopperArrow={false}
-                      disabled
                     />
                     <DatePicker
                       selected={experience.endDate ? new Date(experience.endDate) : null}
@@ -42,7 +40,6 @@ const ExperienceForm = ({ experienceForm = [], readOnly }) => {
                       placeholderText="퇴사일"
                       className="datePicker"
                       showPopperArrow={false}
-                      disabled
                     />
                   </td>
                 </tr>
@@ -53,7 +50,6 @@ const ExperienceForm = ({ experienceForm = [], readOnly }) => {
                       name="position"
                       value={experience.position}
                       className="full-width"
-                      readOnly
                     />
                   </td>
                   <th>직책</th>
@@ -62,7 +58,6 @@ const ExperienceForm = ({ experienceForm = [], readOnly }) => {
                       name="role"
                       value={experience.role}
                       className="full-width"
-                      readOnly
                     />
                   </td>
                 </tr>
@@ -73,7 +68,6 @@ const ExperienceForm = ({ experienceForm = [], readOnly }) => {
                       name="employmentStatus"
                       value={experience.employmentStatus}
                       className="full-width"
-                      readOnly
                     />
                   </td>
                 </tr>
@@ -85,7 +79,6 @@ const ExperienceForm = ({ experienceForm = [], readOnly }) => {
                       value={experience.description}
                       placeholder="담당 업무"
                       className="full-width"
-                      readOnly
                     ></textarea>
                   </td>
                 </tr>

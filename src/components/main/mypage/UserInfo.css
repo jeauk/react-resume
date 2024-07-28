@@ -23,11 +23,11 @@
   width: 100%;
   border-collapse: collapse;
   font-size: 14px; /* 폰트 크기 축소 */
+  table-layout: fixed;
 }
 
-
 .userInfo th {
-  width: 11%;
+  width: 0%;
   padding: 8px; /* 패딩 축소 */
   border: 1px solid #ccc;
   text-align: left;
@@ -36,12 +36,14 @@
 .userInfo td {
   padding: 8px; /* 패딩 축소 */
   border: 1px solid #ccc;
-  width: 27.5%;
+  width: 1.5%;
 }
 
 .userInfo tr:first-child th:first-child {
-  width:0%;
+  width: 0%;
 }
+
+
 
 .userInfo textarea, .userInfo input[type="text"], .userInfo input[type="email"] {
   height: 30px; /* 높이 축소 */
@@ -108,7 +110,15 @@
 }
 
 .userInfo img {
-  max-width: 150px; /* 사진 크기 축소 */
-  max-height: 200px; /* 사진 크기 축소 */
+  max-width: 400px; /* 사진 크기 축소 */
+  max-height: 150px; /* 사진 크기 축소 */
+  display: block;
+  margin: 0 auto; /* 이미지 가운데 정렬 */
 }
 
+.userInfo .img_th {
+  width: 300px; /* 이미지 칸의 너비 설정 */
+  vertical-align: top; /* 이미지 상단 정렬 */
+  text-align: center; /* 이미지 가운데 정렬 */
+  height: 200px; /* 이미지 칸의 높이 설정 */
+}

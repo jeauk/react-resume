@@ -15,7 +15,6 @@ const CertificationForm = ({ certificationForm = [] }) => {
                     name="name"
                     value={certification.name}
                     className="full-width"
-                    readOnly
                   />
                 </td>
               </tr>
@@ -26,7 +25,6 @@ const CertificationForm = ({ certificationForm = [] }) => {
                     name="issuingOrganization"
                     value={certification.issuingOrganization}
                     className="full-width"
-                    readOnly
                   />
                 </td>
               </tr>
@@ -37,7 +35,6 @@ const CertificationForm = ({ certificationForm = [] }) => {
                     name="issueDate"
                     value={certification.issueDate}
                     className="full-width"
-                    readOnly
                   />
                 </td>
               </tr>

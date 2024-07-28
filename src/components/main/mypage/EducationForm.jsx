@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './EducationForm.css';  // CSS 파일을 임포트
 
 // EducationForm 컴포넌트 정의
-const EducationForm = ({ educationForm = [], readOnly }) => (
+const EducationForm = ({ educationForm = [] }) => (
   <form className="educationForm">
     <h2>학력</h2>
     {educationForm.map((education) => (
@@ -16,7 +16,6 @@ const EducationForm = ({ educationForm = [], readOnly }) => (
               <input
                 value={education.school}
                 className="full-width"
-                readOnly={readOnly}
               />
             </td>
           </tr>
@@ -26,7 +25,6 @@ const EducationForm = ({ educationForm = [], readOnly }) => (
               <select
                 value={education.degree}
                 className="full-width"
-                disabled={readOnly}
               >
                 <option value="">학위</option>
                 <option value="2-3년제">2,3년제</option>
@@ -42,7 +40,6 @@ const EducationForm = ({ educationForm = [], readOnly }) => (
                 dateFormat="yyyy/MM/dd"
                 className="date-picker"
                 showPopperArrow={false}
-                readOnly={readOnly}
               />
             </td>
           </tr>
@@ -54,7 +51,6 @@ const EducationForm = ({ educationForm = [], readOnly }) => (
                 dateFormat="yyyy/MM/dd"
                 className="date-picker"
                 showPopperArrow={false}
-                readOnly={readOnly}
               />
             </td>
           </tr>
@@ -64,7 +60,6 @@ const EducationForm = ({ educationForm = [], readOnly }) => (
               <select
                 value={education.graduationStatus}
                 className="full-width"
-                disabled={readOnly}
               >
                 <option value="">졸업여부</option>
                 <option value="재학">재학</option>

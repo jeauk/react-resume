@@ -17,7 +17,6 @@ const MaxLengthInput = ({ maxLengthInput = [] }) => {
                     value={input.title}
                     placeholder="자기소개서 유형"
                     className="title-input"
-                    readOnly
                   />
                 </td>
               </tr>
@@ -30,7 +29,6 @@ const MaxLengthInput = ({ maxLengthInput = [] }) => {
                     value={input.maxChars}
                     placeholder="최대 글자수 설정"
                     className="max-chars-input"
-                    readOnly
                   />
                 </td>
                 <th>카운트</th>
@@ -48,7 +46,6 @@ const MaxLengthInput = ({ maxLengthInput = [] }) => {
                     value={input.text}
                     placeholder="내용을 입력하세요"
                     rows="15"
-                    readOnly
                   />
                 </td>
               </tr>

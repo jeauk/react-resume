@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './UserInfo.css';
 
-const UserInfo = ({ userInfo, readOnly }) => {
+const UserInfo = ({ userInfo }) => {
   const [profileImage, setProfileImage] = useState('');
 
   useEffect(() => {
@@ -18,11 +18,15 @@ const UserInfo = ({ userInfo, readOnly }) => {
           <table>
             <tbody>
               <tr>
-                <th className='img_th' rowSpan="3">
-                  <img 
-                    alt="메인사진" 
-                    src={profileImage || 'https://via.placeholder.com/300x400'} 
-                  />
+                <th 
+                  className='img_th' 
+                  rowSpan="3" 
+                  style={{ 
+                    backgroundImage: `url(${profileImage || 'https://via.placeholder.com/300x400'})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
                 </th>
                 <th><label htmlFor="name">이름</label></th>
                 <td>
@@ -31,7 +35,6 @@ const UserInfo = ({ userInfo, readOnly }) => {
                       id="name"
                       name="name"
                       value={userInfo.name}
-                      readOnly={readOnly}
                       placeholder="이름을 입력하세요"
                     />
                   </div>
@@ -43,7 +46,6 @@ const UserInfo = ({ userInfo, readOnly }) => {
                       id="phone"
                       name="phone"
                       value={userInfo.phone}
-                      readOnly={readOnly}
                       placeholder="전화번호를 입력하세요"
                     />
                   </div>
@@ -57,14 +59,12 @@ const UserInfo = ({ userInfo, readOnly }) => {
                       id="address"
                       name="address"
                       value={userInfo.address}
-                      readOnly={readOnly}
                       placeholder="주소를 선택하세요"
                     />
                     <input
                       id="detailedAddress"
                       name="detailedAddress"
                       value={userInfo.detailedAddress}
-                      readOnly={readOnly}
                       placeholder="상세 주소를 입력하세요"
                     />
                   </div>
@@ -79,7 +79,6 @@ const UserInfo = ({ userInfo, readOnly }) => {
                       name="email"
                       type="email"
                       value={userInfo.email}
-                      readOnly={readOnly}
                       placeholder="이메일을 입력하세요"
                       style={{ width: "auto" }}
                     />
