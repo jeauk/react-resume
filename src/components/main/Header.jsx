@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
-
+import s from './s.png'
 const Header = () => {
   const navigate = useNavigate();
   const jwt = sessionStorage.getItem('jwt')
   return (
     <div className='Header'>
       <div className="Logo">
-        <a href="/">
-          Home
-        </a>
+      <img 
+            src={s} 
+            alt="s" 
+            onClick={() => navigate('/')} 
+            className={s}
+            />
       </div>
       <span className="name">
         {
