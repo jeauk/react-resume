@@ -7,6 +7,7 @@ import Header from './components/main/Header';
 import SignIn from './components/main/SignIn';
 import SignUp from './components/main/SignUp';
 import MyPage from './components/main/MyPage';
+import PrivateRoute from './components/PrivateRoute';
 
 
 
@@ -18,11 +19,11 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/resume" element={<ResumeMain />} />
+          <Route path="/resume" element={<PrivateRoute element={ResumeMain} />} />
           <Route path="/" element={<Main />} />
           <Route path="/1" element={<SignIn />} />
           <Route path="/2" element={<SignUp />} />
-          <Route path="/3" element={<MyPage />} />
+          <Route path="/3" element={<PrivateRoute element={MyPage} />} />
         </Routes>
 
       </BrowserRouter>
