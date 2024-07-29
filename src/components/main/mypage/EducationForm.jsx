@@ -44,19 +44,8 @@ const EducationForm = ({ educationForm = [] }) => (
             </td>
           </tr>
           <tr>
-            <th>졸업일</th>
+          <th>졸업여부</th>
             <td>
-              <DatePicker
-                selected={education.endDate ? new Date(education.endDate) : null}
-                dateFormat="yyyy/MM/dd"
-                className="date-picker"
-                showPopperArrow={false}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th>졸업여부</th>
-            <td colSpan="2">
               <select
                 value={education.graduationStatus}
                 className="full-width"
@@ -70,6 +59,17 @@ const EducationForm = ({ educationForm = [] }) => (
                 <option value="졸업예정">졸업예정</option>
               </select>
             </td>
+          <th>졸업일</th>
+            <td>
+              <DatePicker
+                selected={education.endDate ? new Date(education.endDate) : null}
+                dateFormat="yyyy/MM/dd"
+                className="date-picker"
+                showPopperArrow={false}
+              />
+            </td>
+
+            
           </tr>
         </tbody>
       </table>

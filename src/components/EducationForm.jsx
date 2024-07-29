@@ -52,22 +52,8 @@ const UniversityInput = ({ education, index, handleChange, handleDateChange }) =
         </td>
       </tr>
       <tr>
-        <th><label htmlFor={`endDate-${index}`}>졸업일</label></th>
-        <td>
-          <DatePicker
-            id={`endDate-${index}`}
-            selected={education.endDate}
-            onChange={(date) => handleDateChange(index, date, 'endDate')}
-            dateFormat="yyyy/MM/dd"
-            placeholderText="졸업일"
-            className="date-picker"
-            showPopperArrow={false}
-          />
-        </td>
-      </tr>
-      <tr>
         <th><label htmlFor={`graduationStatus-${index}`}>졸업여부</label></th>
-        <td colSpan="3">
+        <td>
           <select
             id={`graduationStatus-${index}`}
             name="graduationStatus"
@@ -83,6 +69,18 @@ const UniversityInput = ({ education, index, handleChange, handleDateChange }) =
             <option value="자퇴">자퇴</option>
             <option value="졸업예정">졸업예정</option>
           </select>
+        </td>
+        <th><label htmlFor={`endDate-${index}`}>졸업일</label></th>
+        <td>
+          <DatePicker
+            id={`endDate-${index}`}
+            selected={education.endDate}
+            onChange={(date) => handleDateChange(index, date, 'endDate')}
+            dateFormat="yyyy/MM/dd"
+            placeholderText="졸업일"
+            className="date-picker"
+            showPopperArrow={false}
+          />
         </td>
       </tr>
     </tbody>
