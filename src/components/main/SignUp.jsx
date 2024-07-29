@@ -97,6 +97,10 @@ const SignUp = () => {
           <div className="d-grid gap-2">
             <button
               onClick={() => {
+                if (!email || !pwd || !name) {
+                  // 입력 값이 비어 있을 경우 오류 메시지를 설정
+                  return;
+                }
                 async function send() {
                   const url = 'http://127.0.0.1:8080/signup';
                   const res = await fetch(url, {
