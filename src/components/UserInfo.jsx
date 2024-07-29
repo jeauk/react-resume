@@ -13,9 +13,8 @@ const UserInfo = ({ setUserInfo }) => {
     profileImagePath: '' // 추가: 프로필 이미지 경로
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [mainImg, setMainImg] = useState("");
+  const [mainImg, setMainImg] = useState("https://via.placeholder.com/150x200"); // 기본 이미지 설정
   const fileInputRef = useRef(null);
 
   const openPostCode = () => {
@@ -80,7 +79,6 @@ const UserInfo = ({ setUserInfo }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsSubmitting(true);
   };
 
   const handleAddress = (data) => {
@@ -102,11 +100,16 @@ const UserInfo = ({ setUserInfo }) => {
           <table>
             <tbody>
               <tr>
-                <th className='img_th' rowSpan="3">
+                <th className='img_th' rowSpan="3" style={{height:'100%'}}>
                   <img 
                     alt="메인사진" 
-                    src={mainImg || "https://via.placeholder.com/300x400"} 
+                    src={mainImg} 
                     onClick={handleImageClick}
+                    style={{
+                      maxWidth:'100%',
+                      maxHeight:'100%',
+                      }
+                    }
                   />
                   <input 
                     type="file" 
