@@ -38,9 +38,11 @@ label + input + label { display: none !important; }
 .pw-match {
  color: red;
  display: block !important;
+ margin-top: -10px;
 }
 
 .text-danger{
+  margin-top: -10px;
   color: red;
 }
 
