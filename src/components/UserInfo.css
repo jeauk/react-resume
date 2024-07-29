@@ -45,8 +45,9 @@
 
 
 
-.userInfo textarea, .userInfo input[type="text"], .userInfo input[type="email"] {
-  height: 30px; /* 높이 축소 */
+.userInfo textarea, .userInfo input[type="text"], .userInfo input[type="email"],
+.userInfo input[id="name"],.userInfo input[id="address"],.userInfo input[id="phone"],.userInfo input[id="detailedAddress"] {
+  height: 20px; /* 높이 축소 */
   padding: 4px; /* 패딩 축소 */
   border: 1px solid #ccc;
   border-radius: 5px;

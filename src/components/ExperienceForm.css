@@ -43,7 +43,12 @@
 }
 
 .experienceForm .companyInput {
-  width: 100%; /* 회사명 입력 칸의 너비를 100%로 설정 */
+  width: 100%; /* 전체 폭을 차지하도록 */
+  padding: 4px; /* 패딩 축소 */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px; /* 입력 필드 폰트 크기 축소 */
+  box-sizing: border-box; /* 패딩과 경계선을 포함한 전체 크기 설정 */
 }
 
 .experienceForm textarea {
