@@ -42,8 +42,6 @@ const MyPage = () => {
       <ExperienceForm experienceForm={experienceForm} setExperienceForm={setExperienceForm} />
       <CertificationForm certificationForm={certificationForm} setCertificationForm={setCertificationForm} />
       <MaxLengthInput maxLengthInput={maxLengthInput} setMaxLengthInput={setMaxLengthInput} />
-      <button className='retouch'>수정</button>
-      <button className='delete'>삭제</button>
     </div>
 
   );
