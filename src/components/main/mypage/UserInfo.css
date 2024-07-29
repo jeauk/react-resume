@@ -26,7 +26,7 @@
   table-layout: fixed;
 }
 
-.userInfo th {
+.userInfo th:not(tbody > tr:first-child > th:first-child) {
   width: 0%;
   padding: 8px; /* 패딩 축소 */
   border: 1px solid #ccc;
@@ -46,7 +46,7 @@
 
 
 .userInfo textarea, .userInfo input[type="text"], .userInfo input[type="email"] {
-  height: 30px; /* 높이 축소 */
+  height: 20px; /* 높이 축소 */
   padding: 4px; /* 패딩 축소 */
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -109,12 +109,6 @@
   cursor: pointer;
 }
 
-.userInfo img {
-  max-width: 400px; /* 사진 크기 축소 */
-  max-height: 150px; /* 사진 크기 축소 */
-  display: block;
-  margin: 0 auto; /* 이미지 가운데 정렬 */
-}
 
 .userInfo .img_th {
   width: 300px; /* 이미지 칸의 너비 설정 */

@@ -54,6 +54,7 @@
 }
 
 .logo{
-  width: 300px;
+  width: 150px;
   height: 100px;
+  cursor: pointer;
 }

@@ -107,13 +107,3 @@
 .userInfo .postcode-search-btn:hover {
   background-color: #e5e5e5;
 }
-
-
-
-
-.userInfo .img_th {
-  width: 300px; /* 이미지 칸의 너비 설정 */
-  vertical-align: top; /* 이미지 상단 정렬 */
-  text-align: center; /* 이미지 가운데 정렬 */
-  height: 200px; /* 이미지 칸의 높이 설정 */
-}

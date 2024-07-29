@@ -18,15 +18,16 @@ const UserInfo = ({ userInfo }) => {
           <table>
             <tbody>
               <tr>
-                <th 
-                  className='img_th' 
-                  rowSpan="3" 
-                  style={{ 
-                    backgroundImage: `url(${profileImage || 'https://via.placeholder.com/300x400'})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                >
+                <th className='img_th' rowSpan="3" style={{height:'100%'}}>
+                  <img 
+                    alt="메인사진" 
+                    src={profileImage || 'https://via.placeholder.com/300x400'} 
+                    style={{
+                      maxWidth:'100%',
+                      maxHeight:'100%',
+                      }
+                    }
+                  />                  
                 </th>
                 <th><label htmlFor="name">이름</label></th>
                 <td>

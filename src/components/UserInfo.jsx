@@ -14,7 +14,7 @@ const UserInfo = ({ setUserInfo }) => {
   });
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [mainImg, setMainImg] = useState("https://via.placeholder.com/150x200"); // 기본 이미지 설정
+  const [mainImg, setMainImg] = useState("https://via.placeholder.com/300x400"); // 기본 이미지 설정
   const fileInputRef = useRef(null);
 
   const openPostCode = () => {
