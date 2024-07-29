@@ -125,6 +125,7 @@ const UserInfo = ({ setUserInfo }) => {
                     <input
                       id="name"
                       name="name"
+                      type="name"
                       value={userInfo.name}
                       onChange={(e) => {
                         const newName = e.target.value;
