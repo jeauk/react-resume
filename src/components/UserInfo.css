@@ -27,7 +27,7 @@
 
 
 .userInfo th {
-  width: 11%;
+  width: 10%;
   padding: 8px; /* 패딩 축소 */
   border: 1px solid #ccc;
   text-align: left;
@@ -43,13 +43,16 @@
   width:0%;
 }
 
-.userInfo textarea, .userInfo input[type="text"], .userInfo input[type="email"] {
-  height: 30px; /* 높이 축소 */
+.userInfo textarea, .userInfo input[type="text"], .userInfo input[type="email"],
+.userInfo input[id="name"], .userInfo input[id="phone"],.userInfo input[id="address"],.userInfo input[id="detailedAddress"] {
+  height: 15px; /* 높이 축소 */
   padding: 4px; /* 패딩 축소 */
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px; /* 폰트 크기 축소 */
 }
+
+
 
 .userInfo .address-wrapper {
   width: auto;

@@ -48,6 +48,7 @@ const HighSchoolForm = ({ setHighSchoolForm }) => {
                 <input
                   id={`name-${index}`}
                   name="name"
+                  type='high'
                   value={highSchool.name}
                   onChange={(e) => handleChange(index, e)}
                   placeholder="고등학교명을 입력하세요"
