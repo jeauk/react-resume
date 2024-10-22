@@ -46,19 +46,14 @@
 ### Front-end
 <div>
     <img src="./readme/React.png" width="80">
-    <img src="./readme/HTMLCSS.png.png" width="80">
-    <img src="./readme/JavaScript.png.png" width="80">
+    <img src="./readme/HTMLCSS.png" width="80">
+    <img src="./readme/JavaScript.png" width="80">
 </div>
 
 ### Tools
 <div>
     <img src="./readme/Github.png" width="80">
 </div>
-
-<br />
-
-## 🛠 프로젝트 아키텍처
-<img src="./readme/architecture.png" alt="프로젝트 아키텍처" width="600"/>
 
 <br />
 
